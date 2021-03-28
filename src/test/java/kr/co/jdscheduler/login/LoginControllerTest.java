@@ -9,6 +9,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -31,7 +33,7 @@ public class LoginControllerTest {
 
     @Test
     public void login_dto() throws Exception{
-        String userId = "maso";
+        String userId = "maso0418";
         String userPw = "0418";
         String userNm = "최신영";
         String userNickName = "소지";
@@ -45,7 +47,9 @@ public class LoginControllerTest {
                         .param("userNickName",userNickName)
                         .param("userRrn",userRrn)
                         .param("userPhoneNum",userPhoneNum))
+                    .andDo(print())
                     .andExpect(status().isOk())
+                    //.andExpect(content().string(userId))
                     .andExpect(jsonPath("$.userId",is(userId)))
                     .andExpect(jsonPath("$.userPw",is(userPw)))
                     .andExpect(jsonPath("$.userNm",is(userNm)))

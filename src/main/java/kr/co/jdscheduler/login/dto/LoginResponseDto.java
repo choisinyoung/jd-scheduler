@@ -15,13 +15,4 @@ public class LoginResponseDto {
     private final String userRrn;
     private final String userPhoneNum;
 
-    @GetMapping("/login/dto")
-    public LoginResponseDto loginResponseDto(
-            @RequestParam("userId") String userId,@RequestParam("userPw") String userPw,
-            @RequestParam("userNm") String userNm,@RequestParam("userNickName") String userNickName,
-            @RequestParam("userRrn") String userRrn,@RequestParam("userPhoneNum") String userPhoneNum
-
-    ){
-        return new LoginResponseDto(userId,userPw,userNm,userNickName,userRrn,userPhoneNum);
-    }
 }
