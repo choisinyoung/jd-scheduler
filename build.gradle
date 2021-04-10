@@ -24,17 +24,23 @@ dependencies {
 
     implementation('org.projectlombok:lombok')
 
-    compile('org.springframework.boot:spring-boot-starter-web')
-    testCompile('org.springframework.boot:spring-boot-starter-test'){
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    implementation('com.h2datadase:h2')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test'){
         exclude module : 'junit'
     }
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation ('org.junit.jupiter:junit-jupiter-api:5.6.0'){
         exclude module: 'junit-platform-commons'
     }
+
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-engine:1.5.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-commons:1.5.1'
+
+
 
 }
 
